@@ -6,7 +6,7 @@ from fastapi.responses import HTMLResponse
 from huggingface_hub import hf_hub_download
 from llama_cpp import Llama
 import tensorflow as tf
-import ollama
+import ollama 
 
 GENERATIVE_AI_MODEL_REPO = "TheBloke/Llama-2-7B-GGUF"
 GENERATIVE_AI_MODEL_FILE = "llama-2-7b.Q4_K_M.gguf"
