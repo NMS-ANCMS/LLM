@@ -8,7 +8,7 @@
 - Run **`ingest.py`** to create vector database
 - Run **`uvicorn app:app --reload`** to start chatbot
 
-
+```md
 ├───data
 |   └───*.pdf
 ├───templates
@@ -18,5 +18,4 @@
 ├───app.py
 ├───ingest.py
 └───llama-2-7b-chat.ggmlv3.q8_0.bin
-
-
+```
