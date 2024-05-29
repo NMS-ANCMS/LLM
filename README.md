@@ -19,3 +19,8 @@
 ├───ingest.py
 └───llama-2-7b-chat.ggmlv3.q8_0.bin
 ```
+
+## Notes
+- If you have a compatible GPU installed, modify the `model_kwargs` in `ingest.py` and `app.py` to use `'cuda:0'` instead of `'cpu'`.
+- For systems with high RAM, modify the `max_new_tokens` in `app.py` to `1024` to get more context.
+
