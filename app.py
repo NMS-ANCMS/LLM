@@ -49,7 +49,7 @@ def load_llm():
     llm = CTransformers(
         model = "llama-2-7b-chat.ggmlv3.q8_0.bin", # model path 
         model_type="llama",
-        max_new_tokens = 512,
+        max_new_tokens = 512,  # for High RAM: put 1024 instead of 512
         temperature = 0.5
     )
     return llm
@@ -57,7 +57,7 @@ def load_llm():
 # QA Model Function
 def qa_bot():
     embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2",
-                                       model_kwargs={'device': 'cpu'})
+                                       model_kwargs={'device': 'cpu'})  # for GPU device: put cuda:0 instead of cpu
     db = FAISS.load_local(DB_FAISS_PATH, embeddings, allow_dangerous_deserialization=True)
     llm = load_llm()
     qa_prompt = set_custom_prompt()
@@ -83,7 +83,7 @@ async def get_response(query: str = Form(...)):
     answer = response['result']
     source_document = response['source_documents'][0].page_content
     doc = response['source_documents'][0].metadata['source']
-    response_data = jsonable_encoder(json.dumps({"answer": answer, "source_document": source_document, "doc": doc}))
+    response_data = jsonable_encoder(json.dumps({"answer": answer}))
     
     res = Response(response_data)
     return res
