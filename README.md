@@ -7,6 +7,7 @@
 - Put **pdf** files in **`data`** directory
 - Run **`python ingest.py`** to create vector database
 - Run **`uvicorn app:app --reload`** to start chatbot
+    - You can run in different host with this command: **`uvicorn app:app --reload --host 192.168.x.x --port x`**
 
 ```md
 ├───data
