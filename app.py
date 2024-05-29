@@ -81,8 +81,6 @@ async def get_response(query: str = Form(...)):
     response = final_result(query)
     print(response)
     answer = response['result']
-    source_document = response['source_documents'][0].page_content
-    doc = response['source_documents'][0].metadata['source']
     response_data = jsonable_encoder(json.dumps({"answer": answer}))
     
     res = Response(response_data)
